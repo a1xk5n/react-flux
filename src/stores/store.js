@@ -109,6 +109,22 @@ var Store = Object.assign({}, EventEmitter.prototype, {
     return selectedCheckboxes;
   },
 
+  getSettings: function() {
+    return {
+      inputValue : arrStoreObj.get('inputValue'),
+      selectedDropdownCheckboxes : selectedDropdownCheckboxes,
+      selectedCheckboxes : selectedCheckboxes,
+    }
+  },
+
+  setSettings: function(obj) {
+    arrStoreObj = arrStoreObj.set('inputValue', obj.inputValue);
+    searchFilters(arrStoreObj.get('inputValue'));
+    selectedDropdownCheckboxes = obj.selectedDropdownCheckboxes;
+    handleDropdownCheckboxChange(selectedDropdownCheckboxes);
+    selectedCheckboxes = obj.selectedCheckboxes;
+    Store.emitChange();
+  },
 });
 
 AppDispatcher.register(function(action) {
@@ -141,10 +157,10 @@ AppDispatcher.register(function(action) {
       Store.emitChange();
       break;
 
-    
-
     default:
   }
 });
+
+window.Store = Store;
 
 export default Store;

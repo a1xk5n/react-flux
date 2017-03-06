@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Immutable from 'immutable';
 
 var Checkbox = React.createClass({
 
@@ -26,6 +27,15 @@ var Checkbox = React.createClass({
     );
   }
 });
+
+Checkbox.propTypes = {
+    label: React.PropTypes.string,
+    handleCheckboxChange: React.PropTypes.func,
+    key: React.PropTypes.string,
+    id: React.PropTypes.string,
+    isChecked: React.PropTypes.bool,
+}
+
 
 
 export default Checkbox;

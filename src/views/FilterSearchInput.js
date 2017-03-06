@@ -14,10 +14,10 @@ var FilterSearchInput = React.createClass({
     }
 });
 
-// FilterSearchInput.propTypes = {
-//     inputValue: React.PropTypes.string,
-//     handleSearchInput: React.PropTypes.func,
-// }
+FilterSearchInput.propTypes = {
+    inputValue: React.PropTypes.string,
+    handleSearchInput: React.PropTypes.func,
+}
 
 export default FilterSearchInput;
 

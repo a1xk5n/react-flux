@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import Immutable from 'immutable';
 import Checkbox from './Checkbox';
 
 var FilterList = React.createClass({
@@ -31,12 +31,10 @@ var FilterList = React.createClass({
     }
 });
 
-// FilterList.propTypes = {
-//     filters: React.PropTypes.array,
-//     filters: React.PropTypes.array,
-//     toggleCheckbox: React.PropTypes.func,
-// }
-            // 
-            // 
+FilterList.propTypes = {
+    filters: React.PropTypes.instanceOf(Immutable.List).isRequired,
+    filters: React.PropTypes.instanceOf(Immutable.List).isRequired,
+    toggleCheckbox: React.PropTypes.func,
+}
 
 export default FilterList;

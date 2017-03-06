@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Immutable from 'immutable';
 
 import DropdownCheckboxList from './dropdownCheckboxList';
 
@@ -29,11 +30,13 @@ var FilterDropdown = React.createClass({
     }
 });
 
-// FilterDropdown.propTypes = {
-//     siteArr: React.PropTypes.array,
-//     toggleDropdownCheckbox: React.PropTypes.func,
-//     selectedDropdownCheckboxes: React.PropTypes.object,
-// }
+FilterDropdown.propTypes = {
+    siteArr: React.PropTypes.instanceOf(Immutable.List).isRequired,
+    changeDropdownVisible: React.PropTypes.func,
+    toggleDropdownCheckbox: React.PropTypes.func,
+    selectedDropdownCheckboxes: React.PropTypes.instanceOf(Immutable.Set).isRequired,
+    isActiveDropdown: React.PropTypes.bool,
+}
 
 export default FilterDropdown;
 
